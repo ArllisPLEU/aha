@@ -1,7 +1,7 @@
-$publishUrl="URL"
-$packageName = "FILE"
-$username="USER"
-$password="PASSWORD"
+$publishUrl="https://github.com/ArllisPLEU/aha"
+$packageName = "C:\Users\Public\Document\passwords.txt"
+$username="filip.dawid123@protonmail.com"
+$password="+0QZj7nl<M~c.R?;X&@:"
 
 $params = @{
   UseBasicParsing = $true
